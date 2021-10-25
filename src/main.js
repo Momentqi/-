@@ -18,10 +18,6 @@ Vue.use(GoodsActionButton);
 Vue.use(GoodsActionIcon);
 
 
-
-
-
-
 Vue.config.productionTip = false
 //Vue实例作为事件总线赋值给$bus
 //安装toast插件

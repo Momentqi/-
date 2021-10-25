@@ -103,6 +103,9 @@ export default {
     destroyed(){
         this.$bus.$off('itemImageLoad',this.itemImgListener)
     },
+     activated(){
+        this.$refs.scroll.refresh()
+    }, 
     methods:{
         ...mapActions(['addCart']),
     imageLoad() {
@@ -156,6 +159,7 @@ export default {
     //       this.$toast.show(res, 1500)
     //     })
  },
+  
     backTopClick(){
           this.$refs.scroll.scrollTo(0,0)
       },

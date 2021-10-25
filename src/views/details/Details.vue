@@ -6,6 +6,7 @@
 <details-good :goods="goods"/>
 <details-info :detailsinfo="detailsinfo" @imageLoad="imageLoad" />
 </Scroll>
+<DetailsGoodsAction @addCart="addCarts"></DetailsGoodsAction>
   </div>
 </template>
 
@@ -14,10 +15,12 @@ import DetailsNavbar from './childComps/DetailsNavbar'
 import DetailsSwiper from './childComps/DetailsSwiper'
 import DetailsGood from './childComps/DetailsGood.vue'
 import DetailsInfo from './childComps/DetailsInfo.vue'
+import DetailsGoodsAction from './childComps/DetailsGoodsAction.vue'
  
 import {getDetails,Goods} from 'network/details'
 import Scroll from "components/common/scroll/Scroll";
 import {itemListenerMixin,backTopMixin} from 'common/mixin.js'
+import {mapActions} from 'vuex'
 
 export default {
  name:"Details",
@@ -35,6 +38,7 @@ export default {
     DetailsSwiper,
     DetailsGood,
     DetailsInfo,
+    DetailsGoodsAction,
     Scroll,
  },
   activated(){
@@ -53,6 +57,18 @@ export default {
      })
  },
  methods:{
+      ...mapActions(['addCart']),
+     addCarts(){
+          const product = {}
+    // console.log(this);
+        product.image = this.topImages[0];
+        product.title = this.goods.name;
+        product.price = this.goods.price;
+        product.goods_id = this.goods_id;//商品的唯一标识
+  this.addCart(product).then(res => {
+    this.$toast.show(res, 1500)
+  })
+     },
       swiperImageLoad() {
        this.$refs.scroll.refresh()
       },

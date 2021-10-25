@@ -84,11 +84,6 @@ export default {
       this.getHomeGoods('sell')
    
     },
-    activated(){
-        this.$refs.scroll.scrollTo(0, this.ScrollY, 300)
-      // 回到原来位置，需要刷新scroll，防止自动回到顶部位置
-        this.$refs.scroll.refresh()
-    },
     deactivated() {
       //保存离开首页时所在的位置
       this.ScrollY = this.$refs.scroll.getScrollY()
@@ -154,7 +149,12 @@ export default {
         })
       },
      
-    }
+    },
+      activated(){
+        this.$refs.scroll.scrollTo(0, this.ScrollY, 300)
+      // 回到原来位置，需要刷新scroll，防止自动回到顶部位置
+        this.$refs.scroll.refresh()
+    },
 }
 
 </script>

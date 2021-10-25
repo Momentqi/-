@@ -33,7 +33,6 @@ export default {
       methods:{
       leftClickHandle (index) {
 				this.active = index;
-            
             // this.$store.commit('increment',index)
             this.$bus.$emit('sonme',this.active);
 			},
@@ -53,8 +52,8 @@ export default {
    border-right: 1px solid #f1f1f1;
 }
 .center{
-         height: calc(100% - 54px - 49px);
-         overflow: hidden; 
+   height: calc(100% - 54px - 49px);
+   overflow: hidden; 
 }
 .menu_item{
    height: 40px;

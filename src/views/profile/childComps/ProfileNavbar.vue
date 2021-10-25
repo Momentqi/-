@@ -8,6 +8,7 @@
             <div v-for="(item,index) in titles"
             class="title-item"
             :class="{active:index === currentIndex}"
+            :key="index"
             @click="titleClick(index)">{{item}}
             </div>
         </div>

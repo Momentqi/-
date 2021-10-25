@@ -44,8 +44,8 @@ export default {
         }
        }
     },
-     mounted() {
-                 this.$bus.$on('sonme',action=>{
+    created() {
+        this.$bus.$on('sonme',action=>{
     this.$refs.scroll.scrollTo(0,-this.tops[action],100)
         })  
     },

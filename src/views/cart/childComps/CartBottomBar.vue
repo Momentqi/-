@@ -13,7 +13,6 @@
     <div class="calculate" @click="calcClick">
       去计算({{checkLength}})
     </div>
-
   </div>
 </template>
 
@@ -38,7 +37,6 @@
       checkLength() {
         return this.cartList.filter(item => item.checked).length
       },
-
       isSelectAll() {
         //首先判断购物车是否为空，若为空，全选按钮状态为false
         if (this.cartList.length === 0) {
@@ -77,11 +75,10 @@
     position: fixed;
     /* bottom: 40px; */
      width: 100%;
-    bottom:40px; 
+    bottom:49px; 
     display: flex;
     line-height: 40px;
   }
-
   .check-content {
     display: flex;
     align-items: center;
@@ -89,20 +86,17 @@
     width: 80px;
     text-align: center;
   }
-
   .check-button {
     width: 20px;
     height: 20px;
     line-height: 20px;
     margin-left: 5px;
   }
-
   .price {
     /*margin-left: 20px;*/
     text-align: center;
     flex: 1;
   }
-
   .calculate {
     /*margin-left: 20px;*/
     width: 90px;

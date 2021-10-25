@@ -11,7 +11,7 @@
 <!--      <span>{{goods.columns[0]}}</span>-->
 <!--      <span>{{goods.columns[1]}}</span>-->
 <!--      <span>{{goods.services[goods.services.length-1].name}}</span>-->
-      <span v-for="item in goods.columns">{{item}}</span>
+      <span v-for="(item,index) in goods.columns" :key="index">{{item}}</span>
     </div>
     <div class="info-service">
       <span class="info-service-item" v-for="index in goods.services.length-1" :key="index">

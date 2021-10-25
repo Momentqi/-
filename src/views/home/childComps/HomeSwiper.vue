@@ -1,4 +1,5 @@
 <template>
+<div>
   <swiper>
     <swiper-item v-for="(item, id) in banners" :key="id">
       <a :href="item.link">
@@ -6,6 +7,14 @@
       </a>
     </swiper-item>
   </swiper>
+    <!-- <van-swipe :autoplay="2000" >
+  <van-swipe-item v-for="(item, index) in banners" :key="index">
+      <a :href="item.link">
+          <img :src="item.image"  @load="imageLoad"/>
+      </a>
+  </van-swipe-item> 
+ </van-swipe> -->
+ </div>
 </template>
 
 <script>
