@@ -1,12 +1,16 @@
 <template>
   <div>
-    我的
+    <Tops />
   </div>
 </template>
 
 <script>
+import Tops from './childComps/a.vue'
 export default {
-
+  name:"Profile",
+  components:{
+    Tops
+  }
 }
 </script>
 

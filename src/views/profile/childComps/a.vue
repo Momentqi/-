@@ -131,11 +131,14 @@
               <li>40</li>
           </ul>
       </Scroll>
+      <back-top @click.native="backTopClick" v-show="isShowBackTop"></back-top>
   </div>
 </template>
 
 <script>
-import ProfileNavbar from './childComps/ProfileNavbar.vue'
+// import ProfileNavbar from './childComps/ProfileNavbar.vue'
+import ProfileNavbar from './ProfileNavbar.vue'
+import {backTopMixin} from 'common/mixin.js'
 import Scroll from "components/common/scroll/Scroll";
 
 export default {
@@ -148,6 +151,7 @@ name:"profile",
           currentIndex:0
       }
   },
+  mixins:[backTopMixin],
   mounted(){
       this.$nextTick(() => {
           this.tops = []
@@ -173,7 +177,7 @@ name:"profile",
                     this.$refs.nav.currentIndex = this.currentIndex;
                 }
             }
-
+            this.isShowBackTop = (-position.y) > 1000
 }
 
   },

@@ -4,7 +4,7 @@
          <div class="menu_item" 
          :class="{active:index=== active}" 
          @click="leftClickHandle(index)"
-         v-for="(item,index) in leftMenuList":key="index"
+         v-for="(item,index) in leftMenuList" :key="index"
         >{{item}}</div>
       </Scroll>
    </div>

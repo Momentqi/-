@@ -1,12 +1,9 @@
 <template>
   <div>
-    <nav-bar class="home-nav"><div slot="center">分类</div></nav-bar>
-    <!-- <Scroll > -->
-      <category-left :leftMenuList="leftMenuList" ></category-left>
-    <!-- </Scroll> -->
+  <nav-bar class="home-nav"><div slot="center">分类</div></nav-bar>
+  <category-left :leftMenuList="leftMenuList" ></category-left>
+ <category-goods :goods="goods"></category-goods> 
 
-      <category-goods :goods="goods"></category-goods>
-     
   </div>
 </template>
 
@@ -17,7 +14,6 @@ import CategoryGoods from './childComps/CategoryGoods.vue'
 import NavBar from 'components/common/navbar/NavBar'
 
 import {getCategory} from'network/Category.js'
-
 export default {
      name:"Category",
     data(){

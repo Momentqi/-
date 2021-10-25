@@ -3,7 +3,7 @@
         <scroll class="content" ref="scroll">
             <cart-list-item v-for="(item,index) in cartList" 
             :key="index" :item-info="item"/> 
-             <img v-show="wuqi" src="~assets/img/common/placeholder.jpg"/>
+             <img v-show="wuqi" src="~assets/img/cart/ply.gif"/>
         </scroll>
        
     </div>

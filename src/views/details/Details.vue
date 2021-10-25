@@ -45,7 +45,6 @@ export default {
         this.$refs.scroll.refresh()
     },  
  created(){
-     
      this.goods_id = this.$route.query.goods_id
      getDetails(this.goods_id).then(res => {
          const data = res.data.message
@@ -74,7 +73,7 @@ export default {
       },
       imageLoad() {
         this.$refs.scroll.refresh()
-              },
+    },
  }
 }
 </script>

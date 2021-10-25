@@ -4,16 +4,17 @@
     :probe-type="3"
     @scroll="contentScrolls">
     <div class="goods_group"
-    v-for="(item1,index) in goodsItem"  >
+    v-for="(item1,index) in goodsItem"
+    :key="index"  >
     <div class="goods_title" ref="Names">
     <span class="delimiter">/</span>
     <span class="title"  >{{item1.cat_name}}</span>
     <span class="delimiter">/</span>
     </div>
     <div class="goods_list">
-        <div class="navtor" v-for="(item2,index2) in item1.children" 
+        <div class="navtor" v-for="item2 in item1.children" 
         :key="item2.cat_id" @click="itemClick(item2.cat_id)" >
-        <div v-for="(item3,index3) in item2.children" :key="item3.cat_id">
+        <div v-for="item3 in item2.children" :key="item3.cat_id">
             <img   v-lazy="item3.cat_icon" @load="imageLoad" />
             <div class="goods_name">{{item2.cat_name}}</div>
         </div>
@@ -21,11 +22,13 @@
         </div>
     </div>
       </Scroll>
+    <back-top @click.native="backTopClick" v-show="isShowBackTop"></back-top>
   </div>
 </template>
 
 <script>
 import Scroll from "components/common/scroll/Scroll";
+import {backTopMixin} from 'common/mixin.js'
 export default {
     name:"CategoryGoodsitem",
     data(){
@@ -33,6 +36,7 @@ export default {
             tops:[0,2570,4030],
         }
     },
+    mixins:[backTopMixin],
     components:{
         Scroll
     },
@@ -57,7 +61,7 @@ export default {
           this.$refs.scroll.refresh()            
         },
          contentScrolls(position){
-            //  console.log(position);
+           this.isShowBackTop = (-position.y) > 1000
          },
     itemClick(e){
         this.$router.push({
